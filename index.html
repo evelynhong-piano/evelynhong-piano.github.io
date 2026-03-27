@@ -1,23 +1,56 @@
-<div class="hero">
+<!DOCTYPE html>
+<html lang="en">
 
-  <div class="title">
-    Evelyn Hong — Piano
-  </div>
-
-  <div class="subtitle">
-    classical pianist / contemporary music / interpretation
-  </div>
-
-</div>
+<head>
+<meta charset="UTF-8">
+<title>Evelyn Hong</title>
 
 <style>
-    body {
+body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(120deg, #0a0a0a, #111, #0a0a0a);
     color: #eaeaea;
 }
-    
+
+/* MENU */
+.menu-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  font-size:20px;
+  cursor:pointer;
+  color:#aaa;
+  z-index:1000;
+}
+
+.menu{
+  position:fixed;
+  top:0;
+  left:-220px;
+  width:180px;
+  height:100%;
+  background:#111;
+  padding:60px 20px;
+  transition:0.3s;
+}
+
+.menu a{
+  display:block;
+  margin:20px 0;
+  color:#ccc;
+  text-decoration:none;
+}
+
+.menu a:hover{
+  color:#fff;
+}
+
+.menu.open{
+  left:0;
+}
+
+/* HERO */
 .hero{
     text-align:center;
     margin-top:140px;
@@ -35,7 +68,7 @@
     color:#666;
     letter-spacing:2px;
 }
-    
+
 /* layout */
 .section{
     max-width:900px;
@@ -80,9 +113,30 @@ footer{
     font-size:12px;
 }
 </style>
+
 </head>
 
+<body>
 
+<!-- MENU -->
+<div class="menu-btn" onclick="toggleMenu()">≡</div>
+
+<div class="menu" id="menu">
+  <a href="index.html">Home</a>
+  <a href="projects.html">Projects</a>
+  <a href="services.html">Work</a>
+  <a href="contact.html">Contact</a>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="title">
+    Evelyn Hong — Piano
+  </div>
+  <div class="subtitle">
+    piano / contemporary sound / interpretation
+  </div>
+</div>
 
 <!-- ABOUT -->
 <div class="section">
@@ -90,17 +144,17 @@ footer{
 
 <div class="lang">
 <b>EN</b><br>
-Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in piano in the field of keyboard instruments at Tokyo College of Music. Her work focuses on contemporary American music and works by female composers, explored through performance-based research. She actively promotes contemporary repertoire through salon concerts and lecture-recitals, and collaborates with composers as a performer and interpreter.
+Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in piano in the field of keyboard instruments at Tokyo College of Music...
 </div>
 
 <div class="lang">
 <b>日本語</b><br>
-洪櫻菲（こう・おうひ）　東京を拠点とするピアニストであり、現在東京音楽大学大学院鍵盤楽器研究領域ピアノ修士課程に在籍している。現代アメリカ音楽および女性作曲家の作品を中心に、演奏実践を通じた研究活動を行う。サロンコンサートやレクチャーコンサートを企画・出演し、現代作品の普及と発信に積極的に取り組んでいる。
+洪櫻菲（こう・おうひ）東京を拠点とするピアニストであり、現在東京音楽大学大学院鍵盤楽器研究領域ピアノ修士課程に在籍している。
 </div>
 
 <div class="lang">
 <b>中文</b><br>
-洪櫻菲　现居东京的钢琴演奏者，就读于东京音乐大学大学院键盘乐器领域钢琴演奏硕士课程。研究方向为当代美国音乐及女性作曲家作品，并通过演奏实践展开研究。积极策划与参与沙龙音乐会、讲座型音乐会，致力于当代音乐的推广与传播，并与作曲家进行合作演出。
+洪櫻菲，现居东京的钢琴演奏者，就读于东京音乐大学大学院键盘乐器领域钢琴演奏硕士课程。
 </div>
 
 </div>
@@ -110,18 +164,15 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 <h2>BACKGROUND</h2>
 
 <div class="lang">
-2018 中国・廈門市音楽学校ピアノ専攻首席入学<br>
-2021 上海音楽学院オルガン専攻・浙江音楽学院ピアノ専攻合格。入学後中退<br>
-2022 昭和音楽大学ピアノ演奏家コース入学<br>
-2026 東京音楽大学大学院鍵盤楽器研究領域ピアノ修士課程入学<br><br>
-
-ソリスト、伴奏ピアニスト、現代音楽の演奏者、通訳者として活動している。これまでに大森ひろみ氏、大竹紀子氏、松山優香氏、江口文子氏に師事。<br>
-
+2018 厦门音乐学校钢琴专业首席入学<br>
+2021 上海音楽学院・浙江音楽学院合格<br>
+2022 昭和音楽大学入学<br>
+2026 東京音楽大学大学院入学
 </div>
 
 </div>
 
-<!-- WORKS / GALLERY -->
+<!-- GALLERY -->
 <div class="section">
 <h2>WORKS / VISUAL</h2>
 
@@ -140,8 +191,7 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 
 <div class="lang">
 Email: evelyn_hong1219@ymail.ne.jp<br>
-演奏・伴奏・通訳のご依頼は、メールにてお気軽にお問い合わせください。
-Collaboration / Performance / translate welcome
+Performance / collaboration / translation welcome
 </div>
 
 </div>
@@ -149,6 +199,13 @@ Collaboration / Performance / translate welcome
 <footer>
 © Evelyn Hong
 </footer>
+
+<!-- JS -->
+<script>
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("open");
+}
+</script>
 
 </body>
 </html>

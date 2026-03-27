@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Evelyn Hong</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Helvetica, Arial, sans-serif;
+    background: linear-gradient(120deg,#0a0a0a,#111,#0a0a0a);
+    color:#eaeaea;
+    overflow-x:hidden;
+}
+
+/* glitch title */
+.glitch{
+    font-size:48px;
+    text-align:center;
+    margin-top:120px;
+    position:relative;
+    letter-spacing:3px;
+}
+.glitch::before, .glitch::after{
+    content:attr(data-text);
+    position:absolute;
+    left:0;
+    width:100%;
+    overflow:hidden;
+}
+.glitch::before{
+    color:#ff00c8;
+    animation:glitch1 2s infinite;
+}
+.glitch::after{
+    color:#00fff9;
+    animation:glitch2 2s infinite;
+}
+
+@keyframes glitch1{
+    0%{clip-path:inset(0 0 90% 0);}
+    50%{clip-path:inset(30% 0 40% 0);}
+    100%{clip-path:inset(0 0 90% 0);}
+}
+@keyframes glitch2{
+    0%{clip-path:inset(80% 0 0 0);}
+    50%{clip-path:inset(40% 0 30% 0);}
+    100%{clip-path:inset(80% 0 0 0);}
+}
+
+/* layout */
+.section{
+    max-width:900px;
+    margin:120px auto;
+    padding:20px;
+    border-left:1px solid #333;
+}
+
+h2{
+    color:#888;
+    letter-spacing:2px;
+}
+
+.lang{
+    margin-top:20px;
+    line-height:1.8;
+    font-size:14px;
+    color:#ccc;
+}
+
+/* gallery */
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:10px;
+    margin-top:30px;
+}
+.gallery img{
+    width:100%;
+    filter:grayscale(100%);
+    transition:0.3s;
+}
+.gallery img:hover{
+    filter:none;
+}
+
+/* footer */
+footer{
+    text-align:center;
+    padding:60px;
+    color:#555;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="glitch" data-text="EVELYN HONG">
+EVELYN HONG
+</div>
+
+<div style="text-align:center; margin-top:20px;">
+Pianist / Contemporary Music
+</div>
+
+<!-- ABOUT -->
+<div class="section">
+<h2>ABOUT</h2>
+
+<div class="lang">
+<b>EN</b><br>
+Evelyn Hong is a pianist based in Tokyo, currently enrolled in the Master's program at Tokyo College of Music. Her work focuses on contemporary American music and works by female composers, explored through performance-based research. She actively promotes contemporary repertoire through salon concerts and lecture-recitals, and collaborates with composers as a performer and interpreter.
+</div>
+
+<div class="lang">
+<b>日本語</b><br>
+洪櫻菲は東京を拠点とするピアニストであり、現在東京音楽大学大学院ピアノ専攻に在籍している。現代アメリカ音楽および女性作曲家の作品を中心に、演奏実践を通じた研究活動を行う。サロンコンサートやレクチャーコンサートを企画・出演し、現代作品の普及と発信に積極的に取り組んでいる。
+</div>
+
+<div class="lang">
+<b>中文</b><br>
+洪櫻菲，现居东京的钢琴演奏者，就读于东京音乐大学大学院钢琴专业。研究方向为当代美国音乐及女性作曲家作品，并通过演奏实践展开研究。积极策划与参与沙龙音乐会、讲座型音乐会，致力于当代音乐的推广与传播，并与作曲家进行合作演出。
+</div>
+
+</div>
+
+<!-- BACKGROUND -->
+<div class="section">
+<h2>BACKGROUND</h2>
+
+<div class="lang">
+2018 厦门音乐学校钢琴专业第一名入学<br>
+2021 昭和音乐大学ピアノ演奏家コース入学<br>
+2026 東京音楽大学大学院 修士課程入学<br><br>
+
+Studied under Yuka Matsuyama, Fumiko Eguchi, Hiromi Omori.<br>
+Active as soloist, collaborative pianist, and contemporary performer.
+</div>
+
+</div>
+
+<!-- WORKS / GALLERY -->
+<div class="section">
+<h2>WORKS / VISUAL</h2>
+
+<div class="gallery">
+<img src="https://picsum.photos/400?1">
+<img src="https://picsum.photos/400?2">
+<img src="https://picsum.photos/400?3">
+<img src="https://picsum.photos/400?4">
+</div>
+
+</div>
+
+<!-- CONTACT -->
+<div class="section">
+<h2>CONTACT</h2>
+
+<div class="lang">
+Email: your@email.com<br>
+Collaboration / Performance / Commission welcome
+</div>
+
+</div>
+
+<footer>
+© Evelyn Hong
+</footer>
+
+</body>
+</html>

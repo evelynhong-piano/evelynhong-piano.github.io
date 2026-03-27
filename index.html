@@ -113,29 +113,33 @@ h2{
 }
 
 /* gallery */
-.gallery{
-    display:grid;
-    grid-template-columns: 1fr;
-    gap:15px;
-    max-width:900px;
-    margin-top:30px auto 0 auto;
+/* 横图独占一行 */
+.gallery-horizontal {
+    display: grid;
+    grid-template-columns: 1fr; /* 一列 */
+    gap: 15px;
+    max-width: 900px;
+    margin: 30px auto 0 auto;
 }
-.gallery img:first-child {
+.gallery-horizontal img {
     width: 100%;
-    height: auto; /* 横图保持比例 */
+    height: auto;
     border-radius: 4px;
 }
 
-/* 后三张竖图一行三张 */
-.gallery img:nth-child(n+2){
-    width: 100%;
-    height: auto;
-}
-
+/* 三张竖图一行三列 */
 .gallery-vertical {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 一行三列 */
     gap: 15px;
+    max-width: 900px;
+    margin: 15px auto 0 auto;
+}
+.gallery-vertical img {
+    width: 100%; /* 这里100%是格子宽度，不是页面宽度 */
+    height: auto;
+    border-radius: 4px;
+    object-fit: cover; /* 保持比例裁切 */
 }
     
 /* footer */
@@ -224,7 +228,7 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
   <img src="IMG_2753.JPG">
 </div>
 
-</div>
+    
 
 
 

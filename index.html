@@ -115,18 +115,18 @@ h2{
 /* gallery */
 .gallery{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:10px;
+    grid-template-columns:repeat(2, 1fr);
+    gap:20px;
     margin-top:30px;
 }
 .gallery img{
     width:100%;
-    height:250px; 
-    object-fit:cover;
+    height:auto; 
     border-radius:4px;
+    transition: transform 0.3s ease;
 }
 .gallery img:hover{
-    filter:scale(1.03);
+    transform: scale(1.03);
 }
 
 /* footer */
@@ -206,7 +206,7 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 <h2>WORKS / VISUAL</h2>
 
 <div class="gallery">
-<img src="IMG_5737.JPG">
+<img src="IMG_3508.JPG">
 <img src="IMG_5758.JPG">
 <img src="IMG_2011.JPG">
 <img src="IMG_2753.JPG">

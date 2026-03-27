@@ -122,9 +122,12 @@ h2{
     margin: 30px auto 0 auto;
 }
 .gallery-horizontal img {
-    width: 100%;
+    width: 60%;       /* 横图占总宽的60% */
+    max-width: 540px; /* 最大宽度限制 */
     height: auto;
     border-radius: 4px;
+    display: block;
+    margin: 0 auto;   /* 居中 */
 }
 
 /* 三张竖图一行三列 */

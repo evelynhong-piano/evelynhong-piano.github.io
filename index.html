@@ -113,21 +113,19 @@ h2{
 }
 
 /* gallery */
-/* 横图独占一行 */
+/* 横图容器 */
 .gallery-horizontal {
     display: grid;
-    grid-template-columns: 1fr; /* 一列 */
-    gap: 15px;
-    max-width: 900px;
+    grid-template-columns: 1fr;
+    max-width: 900px;          /* 和下面保持一致 */
     margin: 30px auto 0 auto;
 }
+
+/* 横图本体 */
 .gallery-horizontal img {
-    width: 60%;       /* 横图占总宽的60% */
-    max-width: 540px; /* 最大宽度限制 */
+    width: 100%;               /* 和下面三图总宽一致 */
     height: auto;
     border-radius: 4px;
-    display: block;
-    margin: 0 auto;   /* 居中 */
 }
 
 /* 三张竖图一行三列 */

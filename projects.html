@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Projects</title>
+
 <style>
 body{
   background:#0a0a0a;
@@ -10,47 +11,120 @@ body{
   font-family:Arial;
   margin:0;
 }
+
 .container{
   max-width:900px;
   margin:100px auto;
   padding:20px;
 }
+
+/* 标题 */
 h1{
   letter-spacing:2px;
+  margin-bottom:30px;
 }
+
+/* 团队介绍 */
+.intro{
+  line-height:1.8;
+  color:#ccc;
+  max-width:700px;
+}
+
+/* 每个项目 */
+.project{
+  margin-top:80px;
+}
+
+/* 项目标题 */
+.project h2{
+  font-size:18px;
+  letter-spacing:1px;
+  margin-bottom:10px;
+}
+
+/* 项目描述 */
+.project p{
+  color:#aaa;
+  font-size:14px;
+  margin-bottom:20px;
+}
+
+/* 图片 */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
   gap:15px;
-  margin-top:40px;
 }
-img{
+
+.gallery img{
   width:100%;
   filter:grayscale(100%);
   transition:0.3s;
 }
-img:hover{
+
+.gallery img:hover{
   filter:none;
 }
-a{color:#888;}
+
+a{
+  color:#888;
+  text-decoration:none;
+}
 </style>
 </head>
 
 <body>
 
 <div class="container">
+
 <a href="index.html">← Home</a>
 
 <h1>PROJECTS</h1>
 
+<!-- 团队介绍 -->
+<div class="intro">
 <p>
-Performance collective / Salon concerts / Contemporary music projects
+所属するアンサンブル団体「La Dolce」は、複数の音楽大学の在学生および卒業生によって構成されています。主なメンバーはピアノ、フルート、ギター、オペラを専攻としており、演奏会ごとに新たな出演者を迎えることもあります。
+私たちはリラックスした雰囲気のサロンコンサートを中心に、東京を拠点として活動しています。演奏形式はソロ、室内楽、声楽・オペラなど多岐にわたります。
+音楽の普及を目指し、聴き手との距離を縮めるとともに、広く知られていない優れた作品の紹介や作曲家の魅力を発信することを目的としています。
+  
+La Dolce is an ensemble composed of current students and graduates from various music universities. Its core members specialize in piano, flute, guitar, and opera, and additional performers are invited for each concert as needed.
+Based in Tokyo, the ensemble focuses primarily on presenting salon-style concerts in a relaxed and intimate atmosphere. Its performances span a wide range of formats, including solo repertoire, chamber music, and vocal and operatic works.
+With the aim of promoting music, La Dolce seeks to foster a closer connection with its audience while also introducing outstanding yet lesser-known repertoire and showcasing the distinctive voices of composers.
+</p>
+</div>
+
+<!-- 项目1 -->
+<div class="project">
+<h2>2025.12 — Christmas Salon Concert(Shibuya Hall)</h2>
+<p>
+Piano / Flute / Soprano / Guitar 
+2025年のクリスマス・サロンコンサートでは、古典から現代ジャズまで、幅広い時代の音楽をお届けします。リラックスした雰囲気の中で、多彩なプログラムをお楽しみいただけます。
+また、本公演の収益はすべて、保護動物の支援団体へ寄付いたします。
 </p>
 
 <div class="gallery">
 <img src="IMG_5733.JPG">
 <img src="IMG_5737.JPG">
 <img src="https://picsum.photos/500?3">
+</div>
+</div>
+
+<!-- 项目2 -->
+<div class="project">
+<h2>2026.1 — New Year's Salon Concert(Yoyogi Pachetart Music Salon)</h2>
+<p>
+Flute / Guitar / Clarinet / Soprano / Mezzo-Soprano / Piano
+新年コンサートでは、各曲の演奏前に、出演者が作品の内容や作曲家について分かりやすく、楽しくご紹介いたします。
+また本公演では、東京音楽大学大学院の作曲専攻の学生によるオリジナルの芸術歌曲も取り上げ、新進作曲家の作品を広く紹介・発信してまいります。
+さらに今回は、より多彩な楽器編成を取り入れ、重奏作品も充実したプログラムとなっております。
+</p>
+
+<div class="gallery">
+<img src="https://picsum.photos/500?4">
+<img src="https://picsum.photos/500?5">
+</div>
 </div>
 
 </div>

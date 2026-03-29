@@ -42,20 +42,6 @@ body {
   color:#aaa;
 }
 
-/* 极细线页眉 */
-.header-line{
-  width:60px;
-  height:1px;
-  background:#888;
-  opacity:0.6;
-  transition:0.3s;
-}
-
-.header:hover .header-line{
-  width:90px;
-  opacity:1;
-}
-
 /* 语言切换 */
 .lang-switch{
   position:absolute;
@@ -159,6 +145,48 @@ footer{
     color:#555;
     font-size:12px;
 }
+
+.home-mark{
+  position:relative;
+  width:50px;
+  height:20px;
+  display:block;
+  cursor:pointer;
+}
+
+/* 第一条线 */
+.home-mark span:first-child{
+  position:absolute;
+  left:0;
+  top:5px;
+  width:50px;
+  height:1px;
+  background:#aaa;
+  transform:translateX(-6px);
+  transition:0.3s;
+}
+
+/* 第二条线（偏移） */
+.home-mark span:last-child{
+  position:absolute;
+  left:0;
+  top:12px;
+  width:35px;
+  height:1px;
+  background:#666;
+  transition:0.3s;
+}
+
+/* hover效果（很关键） */
+.home-mark:hover span:first-child{
+  transform:translateX(0);
+  background:#fff;
+}
+
+.home-mark:hover span:last-child{
+  width:50px;
+  background:#aaa;
+}
 </style>
 
 </head>
@@ -168,12 +196,15 @@ footer{
 <!-- HEADER -->
 <div class="header">
   <div class="menu-btn" onclick="toggleMenu()">≡</div>
-  <div class="header-line"></div>
+  <a href="index.html" class="home-mark">
+  <span></span>
+  <span></span>
+</a>
 
   <div class="lang-switch">
-    <span onclick="switchLang('en')">EN</span>
-    <span onclick="switchLang('jp')">JP</span>
+    <span onclick="switchLang('jp')">日本語</span>
     <span onclick="switchLang('cn')">中文</span>
+    <span onclick="switchLang('en')">EN</span>
   </div>
 </div>
 

@@ -14,7 +14,7 @@ body {
     color: #eaeaea;
 }
 
-/* HEADER（新增） */
+/* HEADER */
 .header{
   position:fixed;
   top:0;
@@ -32,35 +32,44 @@ body {
   z-index:1000;
 }
 
-/* MENU按钮（改位置） */
+/* 汉堡菜单 */
 .menu-btn{
   position:absolute;
   left:20px;
-
   font-size:clamp(28px, 6vw, 42px);
   padding:14px;
-  border-radius:8px;
-
   cursor:pointer;
   color:#aaa;
-  transition:0.2s;
 }
 
-.menu-btn:hover{
-    color:#fff;
-    background:rgba(255,255,255,0.05);
+/* 极细线页眉 */
+.header-line{
+  width:60px;
+  height:1px;
+  background:#888;
+  opacity:0.6;
+  transition:0.3s;
 }
 
-/* 中间LOGO（可点击回首页） */
-.logo{
-  font-size:clamp(16px,4vw,20px);
-  letter-spacing:4px;
-  color:#ddd;
-  text-decoration:none;
-  transition:0.2s;
+.header:hover .header-line{
+  width:90px;
+  opacity:1;
 }
 
-.logo:hover{
+/* 语言切换 */
+.lang-switch{
+  position:absolute;
+  right:20px;
+  font-size:12px;
+  color:#aaa;
+}
+
+.lang-switch span{
+  margin-left:10px;
+  cursor:pointer;
+}
+
+.lang-switch span:hover{
   color:#fff;
 }
 
@@ -76,6 +85,10 @@ body {
   transition:0.3s;
 }
 
+.menu.open{
+  left:0;
+}
+
 .menu a{
   display:block;
   margin:20px 0;
@@ -83,26 +96,16 @@ body {
   text-decoration:none;
 }
 
-.menu a:hover{
-  color:#fff;
-}
-
-.menu.open{
-  left:0;
-}
-
 /* HERO */
 .hero{
     text-align:center;
-    margin-top:160px; /* 往下推，避免被header挡 */
+    margin-top:160px;
 }
 
 .title{
     font-size:clamp(28px, 6vw, 42px);
     letter-spacing:8px;
-    color:#eaeaea;
     font-weight:200;
-    animation:fadeUp 1.2s ease;
 }
 
 .subtitle{
@@ -110,18 +113,6 @@ body {
     font-size:clamp(14px, 3.5vw, 18px);
     letter-spacing:4px;
     color:#888;
-    animation:fadeUp 1.8s ease;
-}
-
-@keyframes fadeUp{
-    from{
-        opacity:0;
-        transform:translateY(30px);
-    }
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
 }
 
 /* layout */
@@ -132,11 +123,6 @@ body {
     border-left:1px solid #333;
 }
 
-h2{
-    color:#888;
-    letter-spacing:2px;
-}
-
 .lang{
     margin-top:20px;
     line-height:1.8;
@@ -144,33 +130,26 @@ h2{
     color:#ccc;
 }
 
+/* 隐藏语言 */
+.lang-block{
+  display:none;
+}
+
+.lang-block.active{
+  display:block;
+}
+
 /* gallery */
-.gallery-horizontal {
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 900px;
-    margin: 30px auto 0 auto;
+.gallery-horizontal img,
+.gallery-vertical img{
+    width:100%;
+    border-radius:4px;
 }
 
-.gallery-horizontal img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-}
-
-.gallery-vertical {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    max-width: 900px;
-    margin: 15px auto 0 auto;
-}
-
-.gallery-vertical img {
-    width: 100%;
-    height: auto;
-    border-radius: 4px;
-    object-fit: cover;
+.gallery-vertical{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
 }
 
 /* footer */
@@ -189,7 +168,13 @@ footer{
 <!-- HEADER -->
 <div class="header">
   <div class="menu-btn" onclick="toggleMenu()">≡</div>
-  <a href="index.html" class="logo">Evelyn Hong</a>
+  <div class="header-line"></div>
+
+  <div class="lang-switch">
+    <span onclick="switchLang('en')">EN</span>
+    <span onclick="switchLang('jp')">JP</span>
+    <span onclick="switchLang('cn')">中文</span>
+  </div>
 </div>
 
 <!-- MENU -->
@@ -218,19 +203,25 @@ footer{
 <div class="section">
 <h2>ABOUT</h2>
 
+<div class="lang-block active" id="en">
 <div class="lang">
 <b>EN</b><br>
 Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in piano in the field of keyboard instruments at Tokyo College of Music. Her work focuses on contemporary American music and works by female composers, explored through performance-based research. She actively promotes contemporary repertoire through salon concerts and lecture-recitals, and collaborates with composers as a performer and interpreter.
 </div>
+</div>
 
+<div class="lang-block" id="jp">
 <div class="lang">
 <b>日本語</b><br>
 洪櫻菲（こう・おうひ）　東京を拠点とするピアニストであり、現在東京音楽大学大学院鍵盤楽器研究領域ピアノ修士課程に在籍している。現代アメリカ音楽および女性作曲家の作品を中心に、演奏実践を通じた研究活動を行う。サロンコンサートやレクチャーコンサートを企画・出演し、現代作品の普及と発信に積極的に取り組んでいる。
 </div>
+</div>
 
+<div class="lang-block" id="cn">
 <div class="lang">
 <b>中文</b><br>
 洪櫻菲　现居东京的钢琴演奏者，就读于东京音乐大学大学院键盘乐器领域钢琴演奏硕士课程。研究方向为当代美国音乐及女性作曲家作品，并通过演奏实践展开研究。积极策划与参与沙龙音乐会、讲座型音乐会，致力于当代音乐的推广与传播，并与作曲家进行合作演出。
+</div>
 </div>
 
 </div>
@@ -239,14 +230,15 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 <div class="section">
 <h2>BACKGROUND</h2>
 
+<div class="lang-block active" id="bg-jp">
 <div class="lang">
 2009 7歳よりピアノおよびチェロを始める<br>
 2018 中国・廈門市音楽学校ピアノ専攻首席入学<br>
 2021 中国・上海音楽学院オルガン専攻および浙江音楽学院ピアノ科合格。入学後中退。<br>
 2022 昭和音楽大学ピアノ演奏家コース入学。外国人留学生奨学生として在籍し、マスタークラスへの選抜を受けるとともに、成績優秀者としてコンチェルト演奏会に出演するなど演奏活動を展開する。<br>
 2026 東京音楽大学大学院鍵盤楽器研究領域ピアノ修士課程入学<br><br>
-    
 ソリスト、伴奏ピアニスト、現代音楽奏者、通訳者として活动している。SNSで現代音楽の情報発信も行っている。これまでに大森ひろみ氏、大竹紀子氏、松山優香氏、江口文子氏に師事。<br>
+</div>
 </div>
 
 </div>
@@ -272,6 +264,14 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 <script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("open");
+}
+
+function switchLang(lang){
+  document.querySelectorAll(".lang-block").forEach(el=>{
+    el.classList.remove("active");
+  });
+
+  document.getElementById(lang)?.classList.add("active");
 }
 </script>
 

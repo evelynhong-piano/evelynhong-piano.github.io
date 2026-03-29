@@ -19,13 +19,15 @@ body {
   position:fixed;
   top:20px;
   left:20px;
-  font-size:36px;
+
+  font-size:clamp(28px, 6vw, 42px); /* 核心 */
+  
+  padding:14px;   /* 点击区域变大 */
+  border-radius:8px;
+
   cursor:pointer;
   color:#aaa;
   z-index:1000;
-
-  padding:8px 12px;
-  border-radius:6px;
   transition:0.2s;
 }
 
@@ -67,7 +69,7 @@ body {
 }
 
 .title{
-    font-size:42px;
+    font-size:clamp(28px, 6vw, 42px);
     letter-spacing:8px;
     color:#eaeaea;
     font-weight:200;
@@ -76,7 +78,7 @@ body {
 
 .subtitle{
     margin-top:30px;
-    font-size:18px;
+    font-size:clamp(14px, 3.5vw, 18px);
     letter-spacing:4px;
     color:#888;
     animation:fadeUp 1.8s ease;
@@ -109,7 +111,7 @@ h2{
 .lang{
     margin-top:20px;
     line-height:1.8;
-    font-size:14px;
+    font-size:clamp(14px, 3.5vw, 16px);
     color:#ccc;
 }
 

@@ -21,18 +21,14 @@ body {
   left:0;
   width:100%;
   height:70px;
-
   display:flex;
   align-items:center;
   justify-content:center;
-
   background:rgba(10,10,10,0.6);
   backdrop-filter: blur(10px);
-
   z-index:1000;
 }
 
-/* 汉堡菜单 */
 .menu-btn{
   position:absolute;
   left:20px;
@@ -42,7 +38,6 @@ body {
   color:#aaa;
 }
 
-/* 语言切换 */
 .lang-switch{
   position:absolute;
   right:20px;
@@ -116,7 +111,7 @@ body {
     color:#ccc;
 }
 
-/* 隐藏语言 */
+/* 语言系统 */
 .lang-block{
   display:none;
 }
@@ -146,6 +141,7 @@ footer{
     font-size:12px;
 }
 
+/* home mark */
 .home-mark{
   position:relative;
   width:50px;
@@ -154,7 +150,6 @@ footer{
   cursor:pointer;
 }
 
-/* 第一条线 */
 .home-mark span:first-child{
   position:absolute;
   left:0;
@@ -166,7 +161,6 @@ footer{
   transition:0.3s;
 }
 
-/* 第二条线（偏移） */
 .home-mark span:last-child{
   position:absolute;
   left:0;
@@ -177,7 +171,6 @@ footer{
   transition:0.3s;
 }
 
-/* hover效果（很关键） */
 .home-mark:hover span:first-child{
   transform:translateX(0);
   background:#fff;
@@ -196,10 +189,11 @@ footer{
 <!-- HEADER -->
 <div class="header">
   <div class="menu-btn" onclick="toggleMenu()">≡</div>
+
   <a href="index.html" class="home-mark">
-  <span></span>
-  <span></span>
-</a>
+    <span></span>
+    <span></span>
+  </a>
 
   <div class="lang-switch">
     <span onclick="switchLang('jp')">日本語</span>
@@ -234,24 +228,24 @@ footer{
 <div class="section">
 <h2>ABOUT</h2>
 
-<div class="lang-block active" id="en">
-<div class="lang">
-<b>EN</b><br>
-Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in piano in the field of keyboard instruments at Tokyo College of Music. Her work focuses on contemporary American music and works by female composers, explored through performance-based research. She actively promotes contemporary repertoire through salon concerts and lecture-recitals, and collaborates with composers as a performer and interpreter.
-</div>
-</div>
-
-<div class="lang-block" id="jp">
+<div class="lang-block lang-jp active">
 <div class="lang">
 <b>日本語</b><br>
 洪櫻菲（こう・おうひ）　東京を拠点とするピアニストであり、現在東京音楽大学大学院鍵盤楽器研究領域ピアノ修士課程に在籍している。現代アメリカ音楽および女性作曲家の作品を中心に、演奏実践を通じた研究活動を行う。サロンコンサートやレクチャーコンサートを企画・出演し、現代作品の普及と発信に積極的に取り組んでいる。
 </div>
 </div>
 
-<div class="lang-block" id="cn">
+<div class="lang-block lang-cn">
 <div class="lang">
 <b>中文</b><br>
 洪櫻菲　现居东京的钢琴演奏者，就读于东京音乐大学大学院键盘乐器领域钢琴演奏硕士课程。研究方向为当代美国音乐及女性作曲家作品，并通过演奏实践展开研究。积极策划与参与沙龙音乐会、讲座型音乐会，致力于当代音乐的推广与传播，并与作曲家进行合作演出。
+</div>
+</div>
+
+<div class="lang-block lang-en">
+<div class="lang">
+<b>EN</b><br>
+Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in piano in the field of keyboard instruments at Tokyo College of Music. Her work focuses on contemporary American music and works by female composers, explored through performance-based research. She actively promotes contemporary repertoire through salon concerts and lecture-recitals, and collaborates with composers as a performer and interpreter.
 </div>
 </div>
 
@@ -261,8 +255,8 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 <div class="section">
 <h2>BACKGROUND</h2>
 
-<div class="lang-block active" id="bg-jp">
-  <div class="lang">
+<div class="lang-block lang-jp active">
+<div class="lang">
 2009　7歳よりピアノおよびチェロを始める。<br>
 2018　中国・厦門市音楽学校ピアノ専攻に首席で入学。<br>
 2021　上海音楽学院オルガン専攻および浙江音楽学院ピアノ専攻に合格。入学後中退。<br>
@@ -270,11 +264,11 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 2026　東京音楽大学大学院鍵盤楽器研究領域ピアノ演奏修士課程に入学。<br><br>
 
 現在、ソリスト、伴奏ピアニスト、現代音楽奏者、通訳者として活動している。SNSを通じて現代音楽の発信にも取り組んでいる。これまでに大森ひろみ、大竹紀子、松山優香、江口文子の各氏に師事。<br>
-  </div>
+</div>
 </div>
 
-<div class="lang-block" id="bg-cn">
-  <div class="lang">
+<div class="lang-block lang-cn">
+<div class="lang">
 2009　7岁起开始系统学习钢琴与大提琴。<br>
 2018　以第一名成绩考入厦门市音乐学校鼓浪屿校区钢琴专业。<br> 
 2021　同时获得上海音乐学院管风琴演奏专业及浙江音乐学院钢琴演奏专业录取资格，后退学赴日。<br>  
@@ -282,11 +276,11 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 2026　入学东京音乐大学大学院键盘乐器研究领域钢琴演奏硕士课程。<br><br>  
 
 现活跃于独奏、艺术指导（合作钢琴）、当代音乐演奏及口译等领域，同时通过社交媒体进行当代音乐的传播与推广。曾师从大森ひろみ、大竹紀子、松山优香、江口文子。<br>
-  </div>
+</div>
 </div>
 
-<div class="lang-block" id="bg-en">
-  <div class="lang">
+<div class="lang-block lang-en">
+<div class="lang">
 2009  Began formal studies in piano and cello at the age of seven. <br>
 2018  Admitted with highest ranking as a piano major to Xiamen Music School, China. <br>
 2021  Offered admission to the Organ Performance major at the Shanghai Conservatory of Music and the Piano Performance major at the Zhejiang Conservatory of Music; subsequently withdrew after enrollment. <br>
@@ -294,8 +288,9 @@ Evelyn Hong is a pianist based in Tokyo, now studying for a master's degree in p
 2026  Admitted to the Master’s Program in Piano Performance (Keyboard Instruments) at Tokyo College of Music. <br><br>
 
 She is active as a soloist, collaborative pianist, contemporary music performer, and interpreter. She also engages in the dissemination of contemporary music through social media. Her principal teachers include Hiromi Ohmori, Noriko Ohtake, Yuka Matsuyama, and Fumiko Eguchi.<br>
-  </div>
 </div>
+</div>
+
 </div>
 
 <!-- GALLERY -->
@@ -326,7 +321,9 @@ function switchLang(lang){
     el.classList.remove("active");
   });
 
-  document.getElementById(lang)?.classList.add("active");
+  document.querySelectorAll(".lang-" + lang).forEach(el=>{
+    el.classList.add("active");
+  });
 }
 </script>
 

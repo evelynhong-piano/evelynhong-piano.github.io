@@ -13,7 +13,7 @@ body{
   margin:0;
 }
 
-/* ===== HEADER（统一） ===== */
+/* ===== HEADER ===== */
 .header{
   position:fixed;
   top:0;
@@ -37,7 +37,20 @@ body{
   color:#aaa;
 }
 
-/* 艺术 home 标记 */
+/* 语言切换 */
+.lang-switch{
+  position:absolute;
+  right:20px;
+  font-size:14px;
+  color:#aaa;
+  cursor:pointer;
+}
+
+.lang-switch span:hover{
+  color:#fff;
+}
+
+/* home标记 */
 .home-mark{
   position:relative;
   width:50px;
@@ -100,46 +113,40 @@ body{
   text-decoration:none;
 }
 
-/* 页面内容 */
+/* 内容 */
 .container{
   max-width:900px;
-  margin:160px auto; /* 往下推避开header */
+  margin:160px auto;
   padding:20px;
 }
 
-/* 标题 */
 h1{
   letter-spacing:2px;
   margin-bottom:30px;
 }
 
-/* 团队介绍 */
 .intro{
   line-height:1.8;
   color:#ccc;
   max-width:700px;
 }
 
-/* 每个项目 */
 .project{
   margin-top:80px;
 }
 
-/* 项目标题 */
 .project h2{
   font-size:18px;
   letter-spacing:1px;
   margin-bottom:10px;
 }
 
-/* 项目描述 */
 .project p{
   color:#aaa;
   font-size:14px;
   margin-bottom:20px;
 }
 
-/* 图片 */
 .gallery{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
@@ -177,6 +184,11 @@ a{
 .intro-image img:hover{
   filter:none;
 }
+
+/* 语言控制 */
+[data-lang]{
+  display:none;
+}
 </style>
 </head>
 
@@ -190,6 +202,13 @@ a{
     <span></span>
     <span></span>
   </a>
+
+  <!-- 语言切换 -->
+  <div class="lang-switch">
+    <span onclick="setLang('jp')">日本語</span> /
+    <span onclick="setLang('cn')">中文</span>
+    <span onclick="setLang('en')">EN</span> /
+  </div>
 </div>
 
 <!-- MENU -->
@@ -202,32 +221,64 @@ a{
 
 <div class="container">
 
-<h1>PROJECTS</h1>
+<h1>
+  <span data-lang="jp">PROJECTS</span>
+  <span data-lang="cn">PROJECTS</span>
+  <span data-lang="en">PROJECTS</span>
+</h1>
 
 <div class="intro-image">
-  <img src="5ed966d65a18567fae1800e5b233ab5e.JPG" alt="La Dolce">
+  <img src="5ed966d65a18567fae1800e5b233ab5e.JPG">
 </div>
 
 <!-- 团队介绍 -->
 <div class="intro">
-<p>
+
+<p data-lang="jp">
 所属するアンサンブル団体「La Dolce」は、複数の音楽大学の在学生および卒業生によって構成されています。主なメンバーはピアノ、フルート、ギター、オペラを専攻としており、演奏会ごとに新たな出演者を迎えることもあります。
 私たちはリラックスした雰囲気のサロンコンサートを中心に、東京を拠点として活動しています。演奏形式はソロ、室内楽、声楽・オペラなど多岐にわたります。
-音楽の普及を目指し、聴き手との距離を縮めるとともに、広く知られていない優れた作品の紹介や作曲家の魅力を発信することを目的としています。<br><br>
+音楽の普及を目指し、聴き手との距離を縮めるとともに、広く知られていない優れた作品の紹介や作曲家の魅力を発信することを目的としています。
+</p>
+
+<p data-lang="cn">
+所属的室内乐团“La Dolce”由东京圈多所音乐大学的在读生及毕业生组成。核心成员涵盖钢琴、长笛、古典吉他及美声歌剧等专业，并根据每场音乐会的需求邀请不同的客座演奏者。
+我们以东京为中心，主要举办氛围轻松惬意的沙龙音乐会。演出形式多样，涵盖独奏、室内乐、声乐及歌剧等。
+乐团致力于推广音乐艺术，在拉近与听众距离的同时，积极发掘并传播那些鲜为人知的优秀作品及作曲家的独特魅力。
+</p>
   
+<p data-lang="en">
 ”La Dolce” is an ensemble composed of current students and graduates from various music universities. Its core members specialize in piano, flute, guitar, and opera, and additional performers are invited for each concert as needed.
 Based in Tokyo, the ensemble focuses primarily on presenting salon-style concerts in a relaxed and intimate atmosphere. Its performances span a wide range of formats, including solo repertoire, chamber music, and vocal and operatic works.
 With the aim of promoting music, La Dolce seeks to foster a closer connection with its audience while also introducing outstanding yet lesser-known repertoire and showcasing the distinctive voices of composers.
 </p>
+
 </div>
 
 <!-- 项目1 -->
 <div class="project">
-<h2>2025.12 — Christmas Salon Concert(渋谷ホール)</h2>
-<p>
+
+<h2>
+<span data-lang="jp">2025.12 — Christmas Salon Concert(渋谷ホール)</span>
+<span data-lang="cn">2025.12 — Christmas Salon Concert(渋谷ホール)</span>
+<span data-lang="en">2025.12 — Christmas Salon Concert(渋谷ホール)</span>
+</h2>
+
+<p data-lang="jp">
 Piano / Flute / Soprano / Guitar<br>
 2025年のクリスマス・サロンコンサートでは、古典作品から現代ジャズまで、幅広い時代の音楽をお届けします。リラックスした雰囲気の中で、多彩なプログラムをお楽しみいただけます。
 また、本公演の収益はすべて、保護動物の支援団体へ寄付いたします。
+</p>
+
+<p data-lang="cn">
+Piano / Flute / Soprano / Guitar<br>
+2025年的圣诞沙龙音乐会中，我们演奏了跨越时空、涵盖从古典名作到现代爵士的多元音乐。在轻松的氛围中，为观众呈现了丰富多彩的节目。
+同时，本次演出的全部收益已悉数捐赠给流浪动物保护组织。
+
+<p data-lang="en">
+Piano / Flute / Soprano / Guitar<br>
+Our 2025 Christmas Salon Concert brought together music from across the eras, ranging from the classics to contemporary jazz. 
+It was a wonderful evening of diverse performances held in a cozy, relaxed setting. 
+We are also proud to share that 100% of the concert's proceeds were donated to support animal rescue groups.
 </p>
 
 <div class="gallery">
@@ -240,33 +291,23 @@ Piano / Flute / Soprano / Guitar<br>
 </div>
 </div>
 
-<!-- 项目2 -->
-<div class="project">
-<h2>2026.1 — New Year's Salon Concert(代々木 Pachetart Music Salon)</h2>
-<p>
-Flute / Guitar / Clarinet / Soprano / Mezzo-Soprano / Piano<br>
-新年コンサートでは、各曲の演奏前に、出演者が作品の内容や作曲家について分かりやすく、楽しくご紹介いたします。
-また本公演では、東京音楽大学大学院の作曲専攻の学生によるオリジナルの芸術歌曲も取り上げ、新進作曲家の作品を広く紹介・発信してまいります。
-さらに今回は、より多彩な楽器編成を取り入れ、重奏作品も充実したプログラムとなっております。
-</p>
-
-<div class="gallery">
-<img src="804b2bb3cc32727a7ded50d0bb256388.JPG">
-<img src="IMG_3489.HEIC">
-<img src="c2708f2c92fb2c9d3c5453ae5020ea60.JPG">
-<img src="IMG_5737.JPG">
-<img src="IMG_5733.JPG">
-<img src="IMG_5739.JPG">
-<img src="IMG_5728.JPG">
-</div>
-</div>
-
-</div>
-
+<!-- JS -->
 <script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("open");
 }
+
+function setLang(lang){
+  localStorage.setItem("lang", lang);
+  document.querySelectorAll("[data-lang]").forEach(el=>{
+    el.style.display = (el.dataset.lang === lang) ? "block" : "none";
+  });
+}
+
+window.onload = function(){
+  const lang = localStorage.getItem("lang") || "en";
+  setLang(lang);
+};
 </script>
 
 </body>

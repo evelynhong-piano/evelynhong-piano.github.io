@@ -12,6 +12,45 @@ body{
   font-family:Arial;
   margin:0;
 }
+/* home mark */
+.home-mark{
+  position:relative;
+  width:50px;
+  height:20px;
+  display:block;
+  cursor:pointer;
+}
+
+.home-mark span:first-child{
+  position:absolute;
+  left:0;
+  top:5px;
+  width:50px;
+  height:1px;
+  background:#aaa;
+  transform:translateX(-6px);
+  transition:0.3s;
+}
+
+.home-mark span:last-child{
+  position:absolute;
+  left:0;
+  top:12px;
+  width:35px;
+  height:1px;
+  background:#666;
+  transition:0.3s;
+}
+
+.home-mark:hover span:first-child{
+  transform:translateX(0);
+  background:#fff;
+}
+
+.home-mark:hover span:last-child{
+  width:50px;
+  background:#aaa;
+}
 
 /* HEADER */
 .header{

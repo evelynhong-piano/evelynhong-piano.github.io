@@ -13,7 +13,7 @@ body{
   margin:0;
 }
 
-/* ===== HEADER ===== */
+/* HEADER */
 .header{
   position:fixed;
   top:0;
@@ -37,57 +37,20 @@ body{
   color:#aaa;
 }
 
-/* 语言切换 */
 .lang-switch{
   position:absolute;
   right:20px;
-  font-size:14px;
+  font-size:12px;
   color:#aaa;
+}
+
+.lang-switch span{
+  margin-left:10px;
   cursor:pointer;
 }
 
 .lang-switch span:hover{
   color:#fff;
-}
-
-/* home标记 */
-.home-mark{
-  position:relative;
-  width:50px;
-  height:20px;
-  display:block;
-  cursor:pointer;
-}
-
-.home-mark span:first-child{
-  position:absolute;
-  left:0;
-  top:5px;
-  width:50px;
-  height:1px;
-  background:#aaa;
-  transform:translateX(-6px);
-  transition:0.3s;
-}
-
-.home-mark span:last-child{
-  position:absolute;
-  left:0;
-  top:12px;
-  width:35px;
-  height:1px;
-  background:#666;
-  transition:0.3s;
-}
-
-.home-mark:hover span:first-child{
-  transform:translateX(0);
-  background:#fff;
-}
-
-.home-mark:hover span:last-child{
-  width:50px;
-  background:#aaa;
 }
 
 /* MENU */
@@ -163,11 +126,6 @@ h1{
   filter:none;
 }
 
-a{
-  color:#888;
-  text-decoration:none;
-}
-
 .intro-image{
   margin-bottom:30px;
 }
@@ -185,9 +143,13 @@ a{
   filter:none;
 }
 
-/* 语言控制 */
-[data-lang]{
+/* 语言系统（和主页一致） */
+.lang-block{
   display:none;
+}
+
+.lang-block.active{
+  display:block;
 }
 </style>
 </head>
@@ -203,11 +165,10 @@ a{
     <span></span>
   </a>
 
-  <!-- 语言切换 -->
   <div class="lang-switch">
-    <span onclick="setLang('jp')">日本語</span> /
-    <span onclick="setLang('cn')">中文</span>
-    <span onclick="setLang('en')">EN</span> /
+    <span onclick="switchLang('jp')">日本語</span>
+    <span onclick="switchLang('cn')">中文</span>
+    <span onclick="switchLang('en')">EN</span>
   </div>
 </div>
 
@@ -221,11 +182,7 @@ a{
 
 <div class="container">
 
-<h1>
-  <span data-lang="jp">PROJECTS</span>
-  <span data-lang="cn">PROJECTS</span>
-  <span data-lang="en">PROJECTS</span>
-</h1>
+<h1>PROJECTS</h1>
 
 <div class="intro-image">
   <img src="5ed966d65a18567fae1800e5b233ab5e.JPG">
@@ -234,52 +191,61 @@ a{
 <!-- 团队介绍 -->
 <div class="intro">
 
-<p data-lang="jp">
+<div class="lang-block lang-jp active">
+<p>
 所属するアンサンブル団体「La Dolce」は、複数の音楽大学の在学生および卒業生によって構成されています。主なメンバーはピアノ、フルート、ギター、オペラを専攻としており、演奏会ごとに新たな出演者を迎えることもあります。
 私たちはリラックスした雰囲気のサロンコンサートを中心に、東京を拠点として活動しています。演奏形式はソロ、室内楽、声楽・オペラなど多岐にわたります。
 音楽の普及を目指し、聴き手との距離を縮めるとともに、広く知られていない優れた作品の紹介や作曲家の魅力を発信することを目的としています。
 </p>
+</div>
 
-<p data-lang="cn">
+<div class="lang-block lang-cn">
+<p>
 所属的室内乐团“La Dolce”由东京圈多所音乐大学的在读生及毕业生组成。核心成员涵盖钢琴、长笛、古典吉他及美声歌剧等专业，并根据每场音乐会的需求邀请不同的客座演奏者。
 我们以东京为中心，主要举办氛围轻松惬意的沙龙音乐会。演出形式多样，涵盖独奏、室内乐、声乐及歌剧等。
 乐团致力于推广音乐艺术，在拉近与听众距离的同时，积极发掘并传播那些鲜为人知的优秀作品及作曲家的独特魅力。
 </p>
-  
-<p data-lang="en">
-”La Dolce” is an ensemble composed of current students and graduates from various music universities. Its core members specialize in piano, flute, guitar, and opera, and additional performers are invited for each concert as needed.
-Based in Tokyo, the ensemble focuses primarily on presenting salon-style concerts in a relaxed and intimate atmosphere. Its performances span a wide range of formats, including solo repertoire, chamber music, and vocal and operatic works.
-With the aim of promoting music, La Dolce seeks to foster a closer connection with its audience while also introducing outstanding yet lesser-known repertoire and showcasing the distinctive voices of composers.
+</div>
+
+<div class="lang-block lang-en">
+<p>
+”La Dolce” is an ensemble composed of current students and graduates from various music universities. Its core members specialize in piano, flute, guitar, and opera, and additional performers are invited for each concert as needed。
+Based in Tokyo, the ensemble focuses primarily on presenting salon-style concerts in a relaxed and intimate atmosphere. Its performances span a wide range of formats, including solo repertoire, chamber music, and vocal and operatic works。
+With the aim of promoting music, La Dolce seeks to foster a closer connection with its audience while also introducing outstanding yet lesser-known repertoire and showcasing the distinctive voices of composers。
 </p>
+</div>
 
 </div>
 
 <!-- 项目1 -->
 <div class="project">
 
-<h2>
-<span data-lang="jp">2025.12 — Christmas Salon Concert(渋谷ホール)</span>
-<span data-lang="cn">2025.12 — Christmas Salon Concert(渋谷ホール)</span>
-<span data-lang="en">2025.12 — Christmas Salon Concert(渋谷ホール)</span>
-</h2>
+<h2>2025.12 — Christmas Salon Concert(渋谷ホール)</h2>
 
-<p data-lang="jp">
+<div class="lang-block lang-jp active">
+<p>
 Piano / Flute / Soprano / Guitar<br>
 2025年のクリスマス・サロンコンサートでは、古典作品から現代ジャズまで、幅広い時代の音楽をお届けします。リラックスした雰囲気の中で、多彩なプログラムをお楽しみいただけます。
 また、本公演の収益はすべて、保護動物の支援団体へ寄付いたします。
 </p>
+</div>
 
-<p data-lang="cn">
+<div class="lang-block lang-cn">
+<p>
 Piano / Flute / Soprano / Guitar<br>
 2025年的圣诞沙龙音乐会中，我们演奏了跨越时空、涵盖从古典名作到现代爵士的多元音乐。在轻松的氛围中，为观众呈现了丰富多彩的节目。
 同时，本次演出的全部收益已悉数捐赠给流浪动物保护组织。
+</p>
+</div>
 
-<p data-lang="en">
+<div class="lang-block lang-en">
+<p>
 Piano / Flute / Soprano / Guitar<br>
 Our 2025 Christmas Salon Concert brought together music from across the eras, ranging from the classics to contemporary jazz. 
 It was a wonderful evening of diverse performances held in a cozy, relaxed setting. 
 We are also proud to share that 100% of the concert's proceeds were donated to support animal rescue groups.
 </p>
+</div>
 
 <div class="gallery">
 <img src="IMG_8646.JPG">
@@ -289,24 +255,31 @@ We are also proud to share that 100% of the concert's proceeds were donated to s
 <img src="2peo.JPG">
 <img src="4gu.JPG">
 </div>
+
 </div>
 
-<!-- JS -->
+</div>
+
 <script>
 function toggleMenu(){
   document.getElementById("menu").classList.toggle("open");
 }
 
-function setLang(lang){
+function switchLang(lang){
   localStorage.setItem("lang", lang);
-  document.querySelectorAll("[data-lang]").forEach(el=>{
-    el.style.display = (el.dataset.lang === lang) ? "block" : "none";
+
+  document.querySelectorAll(".lang-block").forEach(el=>{
+    el.classList.remove("active");
+  });
+
+  document.querySelectorAll(".lang-" + lang).forEach(el=>{
+    el.classList.add("active");
   });
 }
 
 window.onload = function(){
-  const lang = localStorage.getItem("lang") || "en";
-  setLang(lang);
+  const lang = localStorage.getItem("lang") || "jp";
+  switchLang(lang);
 };
 </script>
 

@@ -18,6 +18,41 @@ body {
   max-width:80%;
   border-radius:50%;
 }
+.title{
+  margin-top:30px;
+  font-size:clamp(28px, 6vw, 42px);
+  letter-spacing:6px;
+  font-weight:200;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+}
+
+/* 中文名字 */
+.name-cn{
+  font-size:1em;
+}
+
+/* 英文名字（缩小） */
+.name-en{
+  font-size:0.65em;
+  letter-spacing:2px;
+  opacity:0.85;
+}
+
+/* 分隔符 */
+.divider{
+  font-size:0.8em;
+  opacity:0.5;
+}
+
+/* Piano */
+.role{
+  font-size:0.75em;
+  letter-spacing:3px;
+  color:#888;
+}
 
 /* HEADER */
 .header{
@@ -218,8 +253,11 @@ footer{
 <!-- HERO -->
 <div class="hero">
   <div class="title">
-    洪櫻菲Evelyn Hong ｜　Piano
-  </div>
+  <span class="name-cn">洪櫻菲</span>
+  <span class="name-en">Evelyn Hong</span>
+  <span class="divider">｜</span>
+  <span class="role">Piano</span>
+</div>
   <div class="subtitle">
     piano performance / contemporary music / interpretation
   </div>

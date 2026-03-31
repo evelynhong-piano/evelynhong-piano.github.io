@@ -278,7 +278,13 @@ function switchLang(lang){
 }
 
 window.onload = function(){
-  const lang = localStorage.getItem("lang") || "jp";
+  let lang = localStorage.getItem("lang");
+
+  if(!lang){
+    lang = "jp";
+    localStorage.setItem("lang", "jp");
+  }
+
   switchLang(lang);
 };
 </script>

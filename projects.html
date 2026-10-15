@@ -1,374 +1,539 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Projects</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contemporary piano performance, collaborations with composers, and musical research.">
+  <title>Projects | 洪櫻菲</title>
 
-<style>
-body{
-  background:#0a0a0a;
-  color:#eee;
-  font-family:Arial;
-  margin:0;
-}
-/* home mark */
-.home-mark{
-  position:relative;
-  width:50px;
-  height:20px;
-  display:block;
-  cursor:pointer;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-.home-mark span:first-child{
-  position:absolute;
-  left:0;
-  top:5px;
-  width:50px;
-  height:1px;
-  background:#aaa;
-  transform:translateX(-6px);
-  transition:0.3s;
-}
+    :root {
+      color-scheme: dark;
+      --bg: #080808;
+      --text: #e8e8e8;
+      --muted: #999;
+      --line: #333;
+      --accent: #fff;
+    }
 
-.home-mark span:last-child{
-  position:absolute;
-  left:0;
-  top:12px;
-  width:35px;
-  height:1px;
-  background:#666;
-  transition:0.3s;
-}
+    html {
+      scroll-behavior: smooth;
+    }
 
-.home-mark:hover span:first-child{
-  transform:translateX(0);
-  background:#fff;
-}
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family:
+        "Helvetica Neue",
+        Helvetica,
+        Arial,
+        "Noto Sans JP",
+        sans-serif;
+      font-size: 14px;
+      line-height: 1.9;
+      letter-spacing: 0.04em;
+      min-height: 100vh;
+    }
 
-.home-mark:hover span:last-child{
-  width:50px;
-  background:#aaa;
-}
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-/* HEADER */
-.header{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:70px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background:rgba(10,10,10,0.6);
-  backdrop-filter: blur(10px);
-  z-index:1000;
-}
+    button {
+      font: inherit;
+    }
 
-.menu-btn{
-  position:absolute;
-  left:20px;
-  font-size:clamp(28px,6vw,42px);
-  padding:14px;
-  cursor:pointer;
-  color:#aaa;
-}
+    /* Header */
 
-.lang-switch{
-  position:absolute;
-  right:20px;
-  font-size:12px;
-  color:#aaa;
-}
+    header {
+      width: 100%;
+      padding: 28px 7%;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
 
-.lang-switch span{
-  margin-left:10px;
-  cursor:pointer;
-}
+    .site-title {
+      font-size: 17px;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      white-space: nowrap;
+    }
 
-.lang-switch span:hover{
-  color:#fff;
-}
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
 
-/* MENU */
-.menu{
-  position:fixed;
-  top:0;
-  left:-220px;
-  width:180px;
-  height:100%;
-  background:#111;
-  padding:80px 20px;
-  transition:0.3s;
-}
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
 
-.menu.open{
-  left:0;
-}
+    nav a {
+      color: var(--muted);
+      font-size: 12px;
+      transition: color 0.25s ease;
+    }
 
-.menu a{
-  display:block;
-  margin:20px 0;
-  color:#ccc;
-  text-decoration:none;
-}
+    nav a:hover,
+    nav a.active {
+      color: var(--accent);
+    }
 
-/* 内容 */
-.container{
-  max-width:900px;
-  margin:160px auto;
-  padding:20px;
-}
+    /* Language switch */
 
-h1{
-  letter-spacing:2px;
-  margin-bottom:30px;
-}
+    .language-switch {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      white-space: nowrap;
+    }
 
-.intro{
-  line-height:1.8;
-  color:#ccc;
-  max-width:700px;
-}
+    .language-switch button {
+      background: none;
+      border: none;
+      padding: 2px 0;
+      color: #777;
+      font-size: 11px;
+      cursor: pointer;
+      transition: color 0.25s ease;
+    }
 
-.project{
-  margin-top:80px;
-}
+    .language-switch button:hover,
+    .language-switch button.active {
+      color: #fff;
+    }
 
-.project h2{
-  font-size:18px;
-  letter-spacing:1px;
-  margin-bottom:10px;
-}
+    .language-switch span {
+      color: #444;
+      font-size: 10px;
+    }
 
-.project p{
-  color:#aaa;
-  font-size:14px;
-  margin-bottom:20px;
-}
+    /* Main */
 
-.gallery{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-  gap:15px;
-}
+    main {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 100px 7% 120px;
+    }
 
-.gallery img{
-  width:100%;
-  filter:grayscale(100%);
-  transition:0.3s;
-}
+    .page-heading {
+      margin-bottom: 70px;
+    }
 
-.gallery img:hover{
-  filter:none;
-}
+    .eyebrow {
+      color: var(--muted);
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
 
-.intro-image{
-  margin-bottom:30px;
-}
+    h1 {
+      font-size: clamp(34px, 5vw, 48px);
+      line-height: 1.3;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+    }
 
-.intro-image img{
-  width:100%;
-  max-width:700px;
-  display:block;
-  margin:0 auto;
-  filter:grayscale(100%);
-  transition:0.3s;
-}
+    .intro {
+      max-width: 680px;
+      margin-top: 26px;
+      color: #bbb;
+      font-size: 14px;
+      line-height: 2.1;
+    }
 
-.intro-image img:hover{
-  filter:none;
-}
+    /* Project sections */
 
-/* 语言系统（和主页一致） */
-.lang-block{
-  display:none;
-}
+    .project-list {
+      border-top: 1px solid var(--line);
+    }
 
-.lang-block.active{
-  display:block;
-}
-</style>
+    .project-item {
+      display: grid;
+      grid-template-columns: 70px minmax(0, 1fr);
+      gap: 30px;
+      padding: 34px 0 38px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .project-number {
+      color: #777;
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      padding-top: 5px;
+    }
+
+    .project-content h2 {
+      font-size: 19px;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      margin-bottom: 15px;
+    }
+
+    .project-content p {
+      max-width: 680px;
+      color: #aaa;
+      font-size: 13px;
+      line-height: 2.15;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 25px 7%;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: #777;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+    }
+
+    /* Language content */
+
+    [data-lang-content] {
+      display: none;
+    }
+
+    [data-lang-content].visible {
+      display: block;
+    }
+
+    /* Responsive */
+
+    @media (max-width: 760px) {
+      header {
+        padding: 22px 6%;
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
+      }
+
+      .header-right {
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      nav {
+        gap: 17px;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-size: 11px;
+      }
+
+      .language-switch {
+        gap: 8px;
+      }
+
+      main {
+        padding: 72px 6% 90px;
+      }
+
+      .page-heading {
+        margin-bottom: 48px;
+      }
+
+      .project-item {
+        grid-template-columns: 36px minmax(0, 1fr);
+        gap: 16px;
+        padding: 28px 0 30px;
+      }
+
+      .project-content h2 {
+        font-size: 17px;
+      }
+
+      .project-content p {
+        font-size: 12px;
+      }
+
+      footer {
+        padding: 22px 6%;
+        flex-direction: column;
+        gap: 5px;
+      }
+    }
+  </style>
 </head>
 
 <body>
+  <header>
+    <a class="site-title" href="index.html">洪櫻菲</a>
 
-<!-- HEADER -->
-<div class="header">
-  <div class="menu-btn" onclick="toggleMenu()">≡</div>
+    <div class="header-right">
+      <nav aria-label="Main navigation">
+        <a href="index.html"
+           data-ja="ホーム"
+           data-zh="首页"
+           data-en="Home">ホーム</a>
 
-  <a href="index.html" class="home-mark">
-    <span></span>
-    <span></span>
-  </a>
+        <a href="projects.html"
+           class="active"
+           data-ja="活動・研究"
+           data-zh="演出与研究"
+           data-en="Projects">活動・研究</a>
 
-  <div class="lang-switch">
-    <span onclick="switchLang('jp')">日本語</span>
-    <span onclick="switchLang('cn')">中文</span>
-    <span onclick="switchLang('en')">EN</span>
-  </div>
-</div>
+        <a href="services.html"
+           data-ja="サービス"
+           data-zh="服务"
+           data-en="Services">サービス</a>
 
-<!-- MENU -->
-<div class="menu" id="menu">
-  <a href="index.html">Home</a>
-  <a href="projects.html">Projects</a>
-  <a href="services.html">Work/Services</a>
-  <a href="contact.html">Contact</a>
-</div>
+        <a href="contact.html"
+           data-ja="お問い合わせ"
+           data-zh="联系"
+           data-en="Contact">お問い合わせ</a>
+      </nav>
 
-<div class="container">
+      <div class="language-switch" aria-label="Language selection">
+        <button type="button" data-lang="ja" class="active">JP</button>
+        <span>/</span>
+        <button type="button" data-lang="zh">中文</button>
+        <span>/</span>
+        <button type="button" data-lang="en">EN</button>
+      </div>
+    </div>
+  </header>
 
-<h1>PROJECTS</h1>
+  <main>
+    <!-- Japanese -->
+    <div data-lang-content="ja" class="visible">
+      <section class="page-heading">
+        <p class="eyebrow">Projects & Research</p>
+        <h1>活動・研究</h1>
 
-<div class="intro-image">
-  <img src="5ed966d65a18567fae1800e5b233ab5e.JPG">
-</div>
+        <p class="intro">
+          東京を拠点に、ピアノ演奏を中心として、現代音楽や新作の演奏に取り組んでいます。
+          作曲家との協働を通じて、現代音楽における音響表現や演奏の可能性を探求しています。
+        </p>
+      </section>
 
-<!-- 团队介绍 -->
-<div class="intro">
+      <section class="project-list">
+        <article class="project-item">
+          <div class="project-number">01</div>
+          <div class="project-content">
+            <h2>現代音楽・現代ピアノ作品</h2>
+            <p>
+              20世紀以降のピアノ作品を中心に、音色、音響構造、身体的な動き、
+              特殊奏法などに着目し、現代音楽における新たな表現の可能性を探っています。
+            </p>
+          </div>
+        </article>
 
-<div class="lang-block lang-jp active">
-<p>
-所属するアンサンブル団体「La Dolce」は、複数の音楽大学の在学生および卒業生によって構成されています。主なメンバーはピアノ、フルート、ギター、オペラを専攻としており、演奏会ごとに新たな出演者を迎えることもあります。
-私たちはリラックスした雰囲気のサロンコンサートを中心に、東京を拠点として活動しています。演奏形式はソロ、室内楽、声楽・オペラなど多岐にわたります。
-音楽の普及を目指し、聴き手との距離を縮めるとともに、広く知られていない優れた作品の紹介や作曲家の魅力を発信することを目的としています。
-</p>
-</div>
+        <article class="project-item">
+          <div class="project-number">02</div>
+          <div class="project-content">
+            <h2>作曲家との協働・新作初演</h2>
+            <p>
+              音楽大学の作曲専攻の学生によるオリジナル作品の演奏や初演に参加しています。
+              作曲家との対話を重ねながら、作品の意図を理解し、
+              音響や奏法の可能性を演奏を通じて探求しています。
+            </p>
+          </div>
+        </article>
 
-<div class="lang-block lang-cn">
-<p>
-所属的室内乐团“La Dolce”由东京圈多所音乐大学的在读生及毕业生组成。核心成员涵盖钢琴、长笛、古典吉他及声乐歌剧等专业，并根据每场音乐会的需求邀请不同的客座演奏者。
-我们以东京为中心，主要举办氛围轻松惬意的沙龙音乐会。演出形式多样，涵盖独奏、室内乐、声乐及歌剧等。
-乐团致力于推广音乐艺术，在拉近与听众距离的同时，积极发掘并传播那些鲜为人知的优秀作品及作曲家的独特魅力。
-</p>
-</div>
+        <article class="project-item">
+          <div class="project-number">03</div>
+          <div class="project-content">
+            <h2>演奏・研究</h2>
+            <p>
+              現代ピアノ作品の分析と演奏解釈に取り組むとともに、
+              現代作曲家による講座やマスタークラスにも推薦を受けて参加しています。
+              演奏と研究の両面から、現代音楽への理解を深めています。
+            </p>
+          </div>
+        </article>
+      </section>
+    </div>
 
-<div class="lang-block lang-en">
-<p>
-”La Dolce” is an ensemble composed of current students and graduates from various music universities. Its core members specialize in piano, flute, guitar, and opera, and additional performers are invited for each concert as needed。
-Based in Tokyo, the ensemble focuses primarily on presenting salon-style concerts in a relaxed and intimate atmosphere. Its performances span a wide range of formats, including solo repertoire, chamber music, and vocal and operatic works。
-With the aim of promoting music, La Dolce seeks to foster a closer connection with its audience while also introducing outstanding yet lesser-known repertoire and showcasing the distinctive voices of composers。
-</p>
-</div>
+    <!-- Chinese -->
+    <div data-lang-content="zh">
+      <section class="page-heading">
+        <p class="eyebrow">Projects & Research</p>
+        <h1>演出与研究</h1>
 
-</div>
+        <p class="intro">
+          目前以东京为活动据点，以钢琴演奏为中心，关注现代音乐与新作品。
+          通过与作曲家的合作，探索当代音乐在音响表达与演奏实践方面的可能性。
+        </p>
+      </section>
 
-<!-- 项目1 -->
-<div class="project">
+      <section class="project-list">
+        <article class="project-item">
+          <div class="project-number">01</div>
+          <div class="project-content">
+            <h2>现代音乐与当代钢琴作品</h2>
+            <p>
+              以20世纪以来的钢琴作品为中心，关注音色、音响结构、身体动作与特殊演奏技法，
+              探索现代音乐中新的声音表达与演奏可能性。
+            </p>
+          </div>
+        </article>
 
-<h2>2025.12 — Christmas Salon Concert(渋谷ホール)</h2>
+        <article class="project-item">
+          <div class="project-number">02</div>
+          <div class="project-content">
+            <h2>与作曲家的合作及新作首演</h2>
+            <p>
+              参与音乐大学作曲专业学生原创作品的演奏与首演。
+              通过与作曲家的交流，理解作品的创作意图，
+              并在演奏实践中探索音响与演奏技法的可能性。
+            </p>
+          </div>
+        </article>
 
-<div class="lang-block lang-jp active">
-<p>
-Piano / Flute / Soprano / Guitar<br>
-2025年のクリスマス・サロンコンサートでは、古典作品から現代ジャズまで、幅広い時代の音楽をお届けします。リラックスした雰囲気の中で、多彩なプログラムをお楽しみいただけます。
-また、本公演の収益はすべて、保護動物の支援団体へ寄付いたします。
-</p>
-</div>
+        <article class="project-item">
+          <div class="project-number">03</div>
+          <div class="project-content">
+            <h2>演奏、研究</h2>
+            <p>
+              持续开展现代钢琴作品的分析与演奏诠释，
+              并受推荐参加现代作曲家举办的讲座与大师班。
+              通过演奏与研究两个方面，加深对当代音乐的理解。
+            </p>
+          </div>
+        </article>
+      </section>
+    </div>
 
-<div class="lang-block lang-cn">
-<p>
-Piano / Flute / Soprano / Guitar<br>
-2025年的圣诞沙龙音乐会中，我们演奏了跨越时空、涵盖从古典名作到现代爵士的多元音乐。在轻松的氛围中，为观众呈现了丰富多彩的节目。
-同时，本次演出的全部收益已悉数捐赠给流浪动物保护组织。
-</p>
-</div>
+    <!-- English -->
+    <div data-lang-content="en">
+      <section class="page-heading">
+        <p class="eyebrow">Projects & Research</p>
+        <h1>Projects & Research</h1>
 
-<div class="lang-block lang-en">
-<p>
-Piano / Flute / Soprano / Guitar<br>
-Our 2025 Christmas Salon Concert brought together music from across the eras, ranging from the classics to contemporary jazz. 
-It was a wonderful evening of diverse performances held in a cozy, relaxed setting. 
-We are also proud to share that 100% of the concert's proceeds were donated to support animal rescue groups.
-</p>
-</div>
+        <p class="intro">
+          Based in Tokyo, with a focus on contemporary music and new works.
+          Collaborations with composers provide opportunities to explore
+          the expressive possibilities of contemporary music and performance.
+        </p>
+      </section>
 
-<div class="gallery">
-<img src="IMG_8646.JPG">
-<img src="christmaspost.JPG">
-<img src="IMG_2743.JPG">
-<img src="a39db11b822201be286e6453cf07c632.JPG">
-<img src="2peo.JPG">
-<img src="4gu.JPG">
-</div>
+      <section class="project-list">
+        <article class="project-item">
+          <div class="project-number">01</div>
+          <div class="project-content">
+            <h2>Contemporary Music & Piano Repertoire</h2>
+            <p>
+              A focus on piano music from the twentieth century onward,
+              exploring timbre, sound structures, physical gestures,
+              and extended techniques as possibilities for contemporary musical expression.
+            </p>
+          </div>
+        </article>
 
-</div>
-<!-- 项目2 -->
-<div class="project">
+        <article class="project-item">
+          <div class="project-number">02</div>
+          <div class="project-content">
+            <h2>Collaborations with Composers & Premieres</h2>
+            <p>
+              Participation in performances and premieres of original works
+              by composition students at music universities.
+              Through dialogue with composers, these collaborations explore
+              the intentions of each work and the expressive possibilities
+              of sound and performance techniques.
+            </p>
+          </div>
+        </article>
 
-<h2>2026.1 — New Year's Salon Concert(代々木 Pachetart Music Salon)</h2>
+        <article class="project-item">
+          <div class="project-number">03</div>
+          <div class="project-content">
+            <h2>Performance, Research </h2>
+            <p>
+              Research into contemporary piano repertoire and performance interpretation,
+              alongside opportunities to attend lectures and masterclasses
+              led by contemporary composers through recommendations.
+              These experiences deepen the understanding of contemporary music
+              through both performance and research.
+            </p>
+          </div>
+        </article>
+      </section>
+    </div>
+  </main>
 
-<div class="lang-block lang-jp active">
-<p>
-Flute / Guitar / Clarinet / Soprano / Mezzo-Soprano / Piano<br>
-新年コンサートでは、各曲の演奏前に、出演者が作品の内容や作曲家について分かりやすく、楽しくご紹介いたします。
-また本公演では、東京音楽大学大学院の作曲専攻の学生によるオリジナルの芸術歌曲も取り上げ、新進作曲家の作品を広く紹介・発信してまいります。
-さらに今回は、より多彩な楽器編成を取り入れ、重奏作品も充実したプログラムとなっております。
-</p>
-</div>
+  <footer>
+    <span>洪櫻菲 | Piano</span>
+    <span>© <span id="year"></span> All Rights Reserved.</span>
+  </footer>
 
-<div class="lang-block lang-cn">
-<p>
-Flute / Guitar / Clarinet / Soprano / Mezzo-Soprano / Piano<br>
-新年音乐会中，我们在每首作品演奏前，由演奏者对作品内容及作曲家进行通俗易懂且富有趣味的介绍。
-此外，本场演出还特别演出了东京音乐大学大学院作曲专业学生的原创艺术歌曲，致力于推广新生代作曲家的作品。
-本次音乐会在编制上也更加丰富，加入了多种乐器组合，呈现更加多样化的重奏作品。
-</p>
-</div>
+  <script>
+    const languageButtons = document.querySelectorAll("[data-lang]");
+    const languageContents = document.querySelectorAll("[data-lang-content]");
+    const translatableElements = document.querySelectorAll("[data-ja]");
 
-<div class="lang-block lang-en">
-<p>
-Flute / Guitar / Clarinet / Soprano / Mezzo-Soprano / Piano<br>
-In this New Year's concert, performers introduced each piece in an engaging and accessible way before the performance, offering insights into the music and its composers.
-The program also featured original art songs composed by graduate students from the Composition Department of Tokyo College of Music, aiming to promote emerging composers.
-In addition, the concert incorporated a wider variety of instrumental combinations, presenting a richer and more diverse chamber music program.
-</p>
-</div>
+    function setLanguage(language) {
+      document.documentElement.lang = language;
 
-<div class="gallery">
-<img src="804b2bb3cc32727a7ded50d0bb256388.JPG">
-<img src="IMG_3489.HEIC">
-<img src="c2708f2c92fb2c9d3c5453ae5020ea60.JPG">
-<img src="IMG_5737.JPG">
-<img src="IMG_5733.JPG">
-<img src="IMG_5739.JPG">
-<img src="IMG_5728.JPG">
-</div>
+      languageContents.forEach((section) => {
+        section.classList.toggle(
+          "visible",
+          section.dataset.langContent === language
+        );
+      });
 
-</div>
+      languageButtons.forEach((button) => {
+        const isActive = button.dataset.lang === language;
+        button.classList.toggle("active", isActive);
+        button.setAttribute("aria-pressed", String(isActive));
+      });
 
+      translatableElements.forEach((element) => {
+        const translation = element.dataset[language];
 
-<script>
-function toggleMenu(){
-  document.getElementById("menu").classList.toggle("open");
-}
+        if (translation) {
+          element.textContent = translation;
+        }
+      });
 
-function switchLang(lang){
-  localStorage.setItem("lang", lang);
+      try {
+        localStorage.setItem("preferredLanguage", language);
+      } catch (error) {
+        // Language switching still works if localStorage is unavailable.
+      }
+    }
 
-  document.querySelectorAll(".lang-block").forEach(el=>{
-    el.classList.remove("active");
-  });
+    languageButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        setLanguage(button.dataset.lang);
+      });
+    });
 
-  document.querySelectorAll(".lang-" + lang).forEach(el=>{
-    el.classList.add("active");
-  });
-}
+    let savedLanguage = "ja";
 
-window.onload = function(){
-  let lang = localStorage.getItem("lang");
+    try {
+      const storedLanguage = localStorage.getItem("preferredLanguage");
 
-  if(!lang){
-    lang = "jp";
-    localStorage.setItem("lang", "jp");
-  }
+      if (["ja", "zh", "en"].includes(storedLanguage)) {
+        savedLanguage = storedLanguage;
+      }
+    } catch (error) {
+      // Use Japanese as the default language.
+    }
 
-  switchLang(lang);
-};
-</script>
+    document.getElementById("year").textContent = new Date().getFullYear();
 
+    setLanguage(savedLanguage);
+  </script>
 </body>
 </html>
